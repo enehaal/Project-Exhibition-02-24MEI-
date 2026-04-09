@@ -1,0 +1,309 @@
+🛡️ Network Traffic Analysis and Packet Inspection using Wireshark
+
+📌 Project Overview
+
+This project demonstrates complete network traffic analysis using Wireshark. The objective is to capture, inspect, and analyze network packets in real time to understand communication patterns, detect anomalies, and identify potential security threats.
+
+This experiment covers the process from installation to packet capture, filtering, analysis, and result interpretation in a structured manner.
+
+🎯 Objectives
+
+Capture live network traffic from a system
+Analyze packets using protocol-level inspection
+Apply filters to isolate specific traffic
+Understand TCP/IP communication
+Identify potential risks and anomalies
+Interpret results in a security context
+
+🧠 Concept
+
+Network communication happens in the form of packets exchanged between systems.
+
+Wireshark works by:
+
+Capturing packets from a network interface
+Decoding protocols such as TCP, HTTP, DNS
+Displaying detailed packet-level data
+Allowing filtering and stream analysis
+
+
+⚙️ Tools and Environment
+
+Kali Linux (VMware Environment)
+Wireshark
+Network Interface (eth0 / wlan0)
+Internet connection
+
+
+🏗️ Workflow Architecture
+
+Network Interface
+↓
+Packet Capture Engine
+↓
+Protocol Decoder
+↓
+Wireshark Interface
+↓
+Analyzed Data
+
+
+🚀 Implementation Steps with Commands
+
+
+🔹 Step 1: Installation
+
+Check if Wireshark is installed:
+
+```bash
+which wireshark
+```
+
+If not installed:
+
+```bash
+sudo apt update
+sudo apt install wireshark -y
+```
+
+---
+
+🔹 Step 2: Launch Wireshark
+
+```bash
+wireshark
+```
+
+Result:
+Wireshark GUI opens showing available network interfaces.
+
+
+🔹 Step 3: Identify Active Interface
+
+Command to check interfaces:
+
+```bash
+ip a
+```
+
+Result:
+Shows interfaces like:
+eth0
+wlan0
+
+Choose the interface with active traffic.
+
+
+🔹 Step 4: Start Packet Capture
+
+In GUI:
+Select active interface → Click Start Capture
+
+Result:
+Packets begin appearing in real time.
+
+
+🔹 Step 5: Generate Traffic
+
+Open browser and visit:
+
+```text
+http://example.com
+```
+
+OR
+
+```bash
+ping google.com
+```
+
+Result:
+Packets generated for HTTP, DNS, ICMP.
+
+
+🔹 Step 6: Apply Filters
+
+Filter only HTTP traffic:
+
+```text
+http
+```
+
+Filter DNS traffic:
+
+```text
+dns
+```
+
+Filter by IP:
+
+```text
+ip.addr == 192.168.85.128
+```
+
+Result:
+Only relevant packets are displayed.
+
+---
+
+🔹 Step 7: Analyze Packets
+
+Click any packet.
+
+Observe:
+
+Source IP
+Destination IP
+Protocol
+Length
+Payload
+
+Result:
+Detailed breakdown of packet structure.
+
+🔹 Step 8: Analyze TCP Handshake
+
+Filter:
+
+```text
+tcp
+```
+
+Look for:
+
+SYN
+SYN-ACK
+ACK
+
+Result:
+3-way handshake observed.
+
+
+🔹 Step 9: Follow TCP Stream
+
+Right-click packet → Follow → TCP Stream
+
+Result:
+Complete communication between client and server displayed.
+
+
+🔹 Step 10: Analyze DNS Queries
+
+Filter:
+
+```text
+dns
+```
+
+Result:
+Shows domain resolution process.
+
+Example:
+Query: google.com
+Response: IP address
+
+
+🔹 Step 11: Stop Capture
+
+Click Stop button in Wireshark
+
+Save capture file if needed.
+
+
+
+📊 Results and Observations
+
+
+🔍 Key Results
+
+Successfully captured live network packets
+Observed multiple protocols (TCP, DNS, HTTP)
+Analyzed packet-level communication
+Identified client-server interaction
+
+
+📌 Example Observations
+
+DNS Query:
+System sends request to resolve domain
+DNS server returns IP address
+
+HTTP Request:
+Client sends GET request
+Server responds with data
+
+TCP Handshake:
+SYN → SYN-ACK → ACK sequence observed
+
+
+⚠ Security Insights
+
+Unencrypted HTTP traffic can expose sensitive data
+DNS queries reveal browsing activity
+Packet interception can expose communication details
+Suspicious packets may indicate malicious activity
+
+
+
+🧠 Result Discussion
+
+The captured traffic demonstrates how systems communicate over networks.
+
+Wireshark enables:
+
+Deep inspection of protocols
+Understanding of packet structure
+Detection of anomalies
+Investigation of suspicious behavior
+
+The ability to follow streams helps reconstruct full communication sessions, making it valuable for both troubleshooting and security analysis.
+
+
+🏭 Real World Applications
+
+Network troubleshooting
+Cybersecurity monitoring
+Incident response
+Digital forensics
+Intrusion detection analysis
+
+💡 Advantages
+
+Provides real-time packet capture
+Supports deep protocol analysis
+Powerful filtering capabilities
+Open-source and widely used
+Useful for both beginners and experts
+
+⚠ Limitations
+
+Requires technical knowledge
+Large data can be overwhelming
+Cannot prevent attacks
+Limited visibility in encrypted traffic
+
+
+🔐 Security Considerations
+
+Capture only authorized network traffic
+Avoid analyzing sensitive data without permission
+Maintain ethical usage
+
+
+🏁 Conclusion
+
+This project demonstrates how Wireshark enables complete visibility into network communication by capturing and analyzing packets in real time.
+
+It helps identify communication patterns, detect anomalies, and understand potential security threats effectively.
+
+
+🚀 Future Scope
+
+Integration with intrusion detection systems
+Automated anomaly detection
+Encrypted traffic analysis
+Advanced forensic investigations
+
+🏆 Final Statement
+
+Wireshark provides deep insight into network communication, enabling analysts to understand, monitor, and secure systems at the packet level effectively
