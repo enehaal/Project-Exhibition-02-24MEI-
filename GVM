@@ -1,0 +1,224 @@
+🛡️ Enterprise Vulnerability Assessment using GVM (OpenVAS)
+
+📌 Project Overview
+
+This project demonstrates an enterprise-level vulnerability assessment system using Greenbone Vulnerability Management (GVM / OpenVAS).
+
+The objective is to identify, analyze, and prioritize security vulnerabilities in a system before they can be exploited by attackers.
+
+
+
+🎯 Objectives
+
+* Perform vulnerability scanning on a target system
+* Analyze detected vulnerabilities using CVE and CVSS scoring
+* Understand risk severity and impact
+* Generate professional security reports
+* Demonstrate real-world security assessment workflow
+
+
+
+ 🧠 Concept
+> Vulnerability assessment is the process of identifying weaknesses in a system that could be exploited by attackers.
+
+GVM performs:
+
+* Network scanning
+* Service detection
+* Vulnerability matching using CVE database
+* Risk scoring using CVSS
+
+
+
+⚙️ Tools & Technologies Used
+
+* Kali Linux (VMware Environment)
+* Greenbone Vulnerability Management
+* PostgreSQL (Backend Database)
+* Linux Terminal
+
+
+
+ 🏗️ System Architecture
+
+```
+User (Web Interface - GSAD)
+        ↓
+GVMD (Manager)
+        ↓
+OpenVAS Scanner
+        ↓
+NVT Feed (Vulnerability Tests)
+        ↓
+PostgreSQL Database
+```
+
+ 🚀 Implementation Steps
+
+🔹 1. Installation & Setup
+
+* Installed Kali Linux on VMware
+* Installed GVM using package manager
+* Configured services:
+
+  ```bash
+  sudo gvm-setup
+  sudo gvm-start
+  ```
+
+---
+
+ 🔹 2. Feed Update
+
+Updated vulnerability database:
+
+```bash
+sudo greenbone-feed-sync --type all
+```
+
+---
+
+🔹 3. Access Web Interface
+
+```
+https://127.0.0.1:9392
+```
+
+---
+
+ 🔹 4. Target Configuration
+
+* Created target:
+
+  * Host: Local/Test system
+  * Port: Default
+
+---
+
+🔹 5. Scan Execution
+
+* Created scan task using:
+
+  * Full and Fast configuration
+* Initiated vulnerability scan
+
+---
+
+ 🔹 6. Report Generation
+
+* Generated vulnerability report
+* Exported results in PDF format
+
+---
+
+ 📊 Results & Observations
+
+
+
+ 🔍 Key Findings
+
+* Detected multiple vulnerabilities across services
+* Vulnerabilities categorized as:
+
+  * Low
+  * Medium
+  * High
+  * Critical
+
+
+📌 Example Observation
+
+* Outdated service detected
+* CVE associated with known exploit
+* High CVSS score (≥ 7)
+
+
+
+ ⚠ Risk Interpretation
+
+| Severity | Meaning          |
+| -------- | ---------------- |
+| Critical | Immediate threat |
+| High     | Exploitable      |
+| Medium   | Moderate risk    |
+| Low      | Informational    |
+
+
+ 💡 Insight
+
+> Higher severity vulnerabilities indicate greater risk and must be prioritized for mitigation.
+
+---
+
+ 🧠 Result Discussion
+
+The scan results demonstrate how real-world systems may contain:
+
+* Misconfigured services
+* Outdated software versions
+* Known exploitable vulnerabilities
+
+GVM correlates detected services with global CVE databases, providing:
+
+* Accurate vulnerability identification
+* Risk-based prioritization
+* Actionable remediation steps
+
+
+
+🏭 Real-World Applications
+
+* 🏦 Banking Systems → Prevent data breaches
+* ☁ Cloud Infrastructure → Detect exposed services
+* 🏢 Enterprise Networks → Internal audits
+* 🏭 Industrial Systems → Secure critical infrastructure
+* 📊 Compliance → ISO 27001, PCI-DSS
+
+
+ 💡 Advantages
+
+* Open-source and free
+* CVE-based vulnerability detection
+* Detailed and professional reports
+* Risk prioritization using CVSS
+* Scalable for enterprise environments
+
+
+
+⚠ Limitations
+
+* Cannot detect zero-day vulnerabilities
+* Resource intensive (RAM/CPU)
+* May generate false positives
+* Requires proper configuration
+* Active scans may affect system performance
+
+
+
+🔐 Security Considerations
+
+* Scanning should only be performed on:
+
+  * Authorized systems
+  * Controlled environments
+* Unauthorized scanning is illegal
+
+
+
+ 🏁 Conclusion
+
+> This project demonstrates how vulnerability assessment tools like GVM help organizations shift from reactive security to proactive risk management.
+
+By identifying vulnerabilities early, organizations can:
+
+* Reduce attack surface
+* Prevent exploitation
+* Improve overall system security
+
+
+ 🚀 Future Scope
+
+* Integration with SIEM systems
+* Automated vulnerability alerts
+* Continuous monitoring pipelines
+* Comparison with tools like OWASP 
