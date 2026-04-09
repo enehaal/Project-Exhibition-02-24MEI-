@@ -132,8 +132,6 @@ https://127.0.0.1:9392
 * CVE associated with known exploit
 * High CVSS score (≥ 7)
 
-
-
  ⚠ Risk Interpretation
 
 | Severity | Meaning          |
@@ -148,7 +146,6 @@ https://127.0.0.1:9392
 
 > Higher severity vulnerabilities indicate greater risk and must be prioritized for mitigation.
 
----
 
  🧠 Result Discussion
 
